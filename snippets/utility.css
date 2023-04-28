@@ -1,0 +1,12 @@
+/* Utility */
+.inline-icon {
+    vertical-align: bottom;
+}
+
+.hide {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
