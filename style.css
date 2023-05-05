@@ -1,3 +1,21 @@
 body main {
     padding: 2rem;
 }
+
+#code {
+    padding: 0.25rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+pre {
+    position: relative;
+}
+
+#snippet-name {
+    position: absolute;
+    top: 0;
+    right: 0
+}
