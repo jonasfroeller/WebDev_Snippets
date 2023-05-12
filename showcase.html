@@ -6,42 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Showcase</title>
+    <script src="./snippets/elements.js" defer></script>
     <link rel="stylesheet" href="./snippets/style.css">
     <link rel="stylesheet" href="./snippets/utility.css">
     <link rel="stylesheet" href="./snippets/elements.css">
 </head>
 
-<body>
-    <base href="./showcase.html" target="_blank">
+<base href="./showcase.html" target="_blank">
 
-    <dialog closed>Defines a dialog <wbr> box or window</dialog>
+<dialog closed>Defines a dialog <wbr> box or window</dialog>
 
-    <noscript>
-        <p>Please enable JavaScript <wbr> to use this site.</p>
-    </noscript>
+<noscript>
+    Please enable JavaScript to use this site.
+</noscript>
 
-    <template>
-        <p>This content is hidden <wbr> when the page loads</p>
-    </template>
-
-    <header>
-        <nav>
-            <ul>
-                <li><a href="./index.html">HOME</a></li>
-                <li><a href="#covered">covered</a></li>
-                <li><a href="#text">text</a></li>
-                <li><a href="#media">media</a></li>
-                <li><a href="#media-audio">media-audio</a></li>
-                <li><a href="#media-video">media-video</a></li>
-                <li><a href="#media-image">media-image</a></li>
-                <li><a href="#interactive">interactive</a></li>
-                <li><a href="#input">input</a></li>
-                <li><a href="#data">data</a></li>
-            </ul>
-        </nav>
-    </header>
+<body data-layout="sidebar">
+    <aside>
+        <ul>
+            <h1>Socials</h1>
+            <a href="https://codepen.io/jonasfroeller">Codepen</a>
+            <a href="https://dev.to/jonasfroeller">DevTo</a>
+            <li>
+                <input type="radio" name="links" id="link1" checked>
+                <label for="link1">Link 1</label>
+            </li>
+            <li>
+                <input type="radio" name="links" id="link2">
+                <label for="link2">Link 2</label>
+            </li>
+            <li>
+                <input type="radio" name="links" id="link3">
+                <label for="link3">Link 3</label>
+            </li>
+        </ul>
+    </aside>
 
     <main>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="./index.html" target="_self">HOME</a></li>
+                    <li><a href="#covered" target="_self">covered</a></li>
+                    <li><a href="#text" target="_self">text</a></li>
+                    <li><a href="#media" target="_self">media</a></li>
+                    <li><a href="#media-audio" target="_self">media-audio</a></li>
+                    <li><a href="#media-video" target="_self">media-video</a></li>
+                    <li><a href="#media-image" target="_self">media-image</a></li>
+                    <li><a href="#interactive" target="_self">interactive</a></li>
+                    <li><a href="#input" target="_self">input</a></li>
+                    <li><a href="#data" target="_self">data</a></li>
+                </ul>
+            </nav>
+        </header>
+
         <article>
             <h1 id="covered">Covered Tags:</h1>
             <div>
@@ -56,7 +73,7 @@
                 mark, meta, meter, nav, noframes, noscript, object, ol, optgroup, option, output, p, param, picture,
                 pre,
                 progress, q, rp, rt, ruby, s, samp, script, section, select, small, source, span, strong, style, sub,
-                summary, sup, svg, table, tbody, td, template, textarea, tfoot, th, thead, time, title, tr, track, tt,
+                summary, sup, svg, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, track, tt,
                 u,
                 ul, var, video, wbr.
             </div>
@@ -99,8 +116,9 @@
                 <bdi dir="rtl">Isolates a part of text that might be formatted in a different direction from other text
                     outside
                     it</bdi> <br>
-                <bdo dir="rtl">Overrides the current text direction</bdo>
-                <ins>This text has been inserted into the document</ins>
+                <bdo dir="rtl">Overrides the current text direction</bdo> <br>
+                <ins>This text has been inserted into the document</ins> <br>
+                <data value="42">Adds a machine-readable translation of a given content</data>
             </div>
             <hr>
 
@@ -108,24 +126,35 @@
             <section>
                 <h3 id="media-audio">Audio:</h3>
                 <audio controls>
-                    <source src="music.mp3" type="audio/mpeg">Defines embedded sound content
+                    <source src="./assets/demo-audio-lovers-walking.mp3"
+                        alt="https://pixabay.com/de/music/moderner-jazz-lovers-walking-110966/" type="audio/mpeg">
                 </audio>
 
                 <h3 id="media-video">Video:</h3>
-                <video src="video.mp4" controls></video>
-                <iframe src="https://www.example.com" title="some video"></iframe>
-                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+                <video controls>
+                    <source src="./assets/demo-video-frog.mp4"
+                        alt="https://pixabay.com/de/videos/frosch-schilf-gr%C3%BCn-113403" type="video/mp4">
+                    <track src="./assets/demo-video-subtitles.vtt" type="text/vtt" kind="subtitles" srclang="en"
+                        label="English">
+                </video>
+
+                <div class="iframe-box">
+                    <iframe src="https://www.example.com" title="example website content title"></iframe>
+                </div>
 
                 <h3 id="media-image">Image:</h3>
                 <div>
-                    <img src="example.jpg" alt="An example image">
                     <figure>
-                        <img src="example.jpg" alt="An example image">
-                        <figcaption>This is an example image</figcaption>
+                        <img id="frog" src="./assets/demo-image-bird.jpg" alt="An example image">
+                        <figcaption>by <a
+                                href="https://pixabay.com/de/photos/vogel-europ%c3%a4isches-rotkehlchen-7930857/">sharkolot</a>
+                        </figcaption>
                     </figure>
+
                     <svg width="100" height="100">
                         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
                     </svg>
+
                     <canvas id="myCanvas"></canvas>
                 </div>
             </section>
@@ -177,6 +206,7 @@
             <ul>
                 <li><a href="snippets/ajax.js">ajax.js</a></li>
                 <li><a href="snippets/fetch.js">fetch.js</a></li>
+                <li><a href="snippets/elements.js">elements.js</a></li>
                 <li><a href="snippets/style.css">style.css</a></li>
                 <li><a href="snippets/default.css">default.css</a></li>
                 <li><a href="snippets/utility.css">utility.css</a></li>
@@ -187,26 +217,32 @@
                 <li><a href="snippets/elements.html">elements.html</a></li>
             </ol>
 
-            <data value="42">Adds a machine-readable translation of a given content</data>
-
             <h3>Meter:</h3>
             <meter value="75" min="0" max="100">75%</meter>
 
             <h3>Document:</h3>
-            <object data="example.pdf"></object>
-            <embed src="horse.mp3" type="audio/mpeg" height="60" width="144">
+            <div class="object-box">
+                <object data="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"></object>
+            </div>
+
+            <div class="embed-box">
+                <embed src="./snippets/default.css" type="audio/mpeg" height="60" width="144">
+            </div>
 
             <h3>Map:</h3>
+            <img src="https://picsum.photos/200" usemap="#map">
+
             <map name="map">
                 <area shape="rect" coords="0,0,20,20" alt="Floor" href="#">
                 <area shape="circle" coords="30,30,10" alt="Sun" href="#">
             </map>
 
+            <h3>Table:</h3>
             <table>
                 <caption>Table Caption</caption>
                 <colgroup>
-                    <col span="1" style="">
-                    <col span="2" style="">
+                    <col span="1" style="color: var(--contrast-color);">
+                    <col span="2" style="color: var(--secondary-color);">
                 </colgroup>
                 <thead>
                     <tr>
@@ -232,23 +268,17 @@
                 </tfoot>
             </table>
         </article>
-        <aside>
-            Socials:
-            <a href="https://codepen.io/jonasfroeller">Codepen</a>
-            <a href="https://dev.to/jonasfroeller">DevTo</a>
-        </aside>
+
+        <footer>
+            <address>
+                Email: <a href="j.froe@gmx.at">j.froe@gmx.at</a><br>
+            </address>
+            <time datetime="">
+                <script> document.write(new Date); document.querySelector("time").setAttribute("datetime", new Date) </script>
+            </time> <br>
+            <a href="https://jonasfroeller.vercel.app">portfolio</a> <cite>by Jonas Fröller</cite>
+        </footer>
     </main>
-
-    <footer>
-        <address>
-            Email: <a href="j.froe@gmx.at">j.froe@gmx.at</a><br>
-        </address>
-        <time datetime="">
-            <script> document.write(new Date); document.querySelector("time").setAttribute("datetime", new Date) </script>
-        </time> <br>
-        <a href="https://jonasfroeller.vercel.app">portfolio</a> <cite>by Jonas Fröller</cite>
-    </footer>
-
 </body>
 
 </html>

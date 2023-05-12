@@ -4,8 +4,12 @@
   });
 });
 
-getSnippet("default.css");
+document.getElementById("snippet-name").addEventListener("click", function () {
+  navigator.clipboard.writeText(document.getElementById("code").textContent);
+  alert("Copied to clipboard!");
+})
 
+getSnippet("default.css");
 function getSnippet(snippet) {
   fetch(`https://webdev-snippets.pages.dev/snippets/${snippet}`)
   .then(response => response.text())
@@ -13,9 +17,5 @@ function getSnippet(snippet) {
     document.getElementById("code").textContent = text;
     hljs.highlightElement(document.getElementById('code'));
     document.getElementById("snippet-name").innerText = snippet;
-    document.getElementById("snippet-name").addEventListener("click", function () {
-      navigator.clipboard.writeText(document.getElementById("code").textContent);
-      alert("Copied to clipboard");
-    })
   });
 }

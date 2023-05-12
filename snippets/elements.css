@@ -9,10 +9,25 @@
     margin: 0;
 }
 
-img, picture, svg, video {
+img, picture, svg, map, video {
     display: block;
     max-width: 100%;
 }
+
+.iframe-box, .object-box, .embed-box {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.iframe-box iframe, .object-box object, .embed-box embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
 input, button, textarea, select {
     font: inherit;
@@ -25,6 +40,10 @@ h1, h2, h3, h4, h5, h6 {
 h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
     content: '# ';
     color: var(--accent-color);
+}
+
+ul, ol {
+    list-style-position: inside;
 }
 
 a {
@@ -40,7 +59,7 @@ button, input[type="submit"], input[type="button"], input[type="reset"] {
     all: unset;
     cursor: pointer;
     transition: 0.3s;
-    padding: 0.5rem;
+    padding: 0.125rem 0.25rem;
     border-radius: 0.5rem;
     border: 2px solid var(--primary-color);
     background-color: var(--secondary-background);
@@ -75,9 +94,124 @@ header nav ul li {
 }
 
 main {
-    padding: 2rem;
+    padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
 mark {
     color: #000;
+}
+
+noscript {
+    content: "Please enable JavaScript <wbr> to use this site.";
+}
+
+/* INPUT */
+fieldset {
+    padding: 1rem;
+}
+
+/* ARTCILE */
+article {
+    width: min(65ch, 100% - 4rem);
+    margin-inline: auto;
+}
+
+/* QUOTE */
+blockquote {
+    border-left: 10px solid var(--secondary-background);
+    margin: 1.5em 5px;
+    padding: 0.5em 10px;
+}
+
+blockquote p {
+    display: inline;
+} 
+
+/* DETAILS */
+details p {
+    height: 0;
+    transition: 0.3s;
+}
+
+details[open] p {
+    height: max-content;
+}
+
+/* SIDEBAR */
+/* Inspiration: https://every-layout.dev/layouts/sidebar/ */
+body[data-layout="sidebar"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+body[data-layout="sidebar"] aside {
+    position: relative;
+    /* ↓ The width when the sidebar _is_ a sidebar */
+    flex-basis: 20rem;
+    flex-grow: 1;
+}
+
+body[data-layout="sidebar"] aside ul {
+    z-index: 999;
+    top: 0;
+    padding: 1rem;
+    position: sticky;
+    background-color: var(--secondary-background);
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    margin: 0rem;
+    border-bottom-right-radius: var(--border-radius)
+}
+
+body[data-layout="sidebar"] aside ul li {
+    background-color: var(--primary-background);
+    border-radius: var(--border-radius);
+    padding: 0.25rem;
+    list-style: none;
+}
+
+body[data-layout="sidebar"] aside ul li input[type="radio"] {
+    display: none;
+}
+
+body[data-layout="sidebar"] aside ul li label {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+body[data-layout="sidebar"] aside ul li label:hover {
+    padding-left: 1rem;
+}
+
+body[data-layout="sidebar"] aside ul li input[type="radio"]:checked+label {
+    padding-left: 0rem;
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+body[data-layout="sidebar"] aside ul li input[type="radio"]:checked+label::before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+body[data-layout="sidebar"] aside ul li input[type="radio"]+label {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+body[data-layout="sidebar"] main {
+    /* ↓ Grow from nothing */
+    flex-basis: 0;
+    flex-grow: 999;
+    /* ↓ Wrap when the elements are of equal width */
+    min-inline-size: 50%;
 }
