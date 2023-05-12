@@ -1,7 +1,20 @@
 /* Elements */
+
+/* GENERAL */
 *, *::before, *::after {
     color: var(--primary-color);
     box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    }
 }
 
 * {
@@ -9,6 +22,7 @@
     margin: 0;
 }
 
+/* DATA */
 img, picture, svg, map, video {
     display: block;
     max-width: 100%;
@@ -29,10 +43,12 @@ img, picture, svg, map, video {
     height: 100%;
   }
 
+/* INPUT */
 input, button, textarea, select {
     font: inherit;
 }
 
+/* TEXT */
 h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
@@ -46,34 +62,29 @@ ul, ol {
     list-style-position: inside;
 }
 
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
 a {
     text-decoration: none;
     color: var(--accent-color);
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-button, input[type="submit"], input[type="button"], input[type="reset"] {
-    all: unset;
-    cursor: pointer;
-    transition: 0.3s;
-    padding: 0.125rem 0.25rem;
-    border-radius: 0.5rem;
-    border: 2px solid var(--primary-color);
-    background-color: var(--secondary-background);
+mark {
+    color: #000;
 }
 
-button:active, input[type="submit"]:active, input[type="button"]:active, input[type="reset"]:active {
-    scale: 0.95;
-}
-
-button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
-    border: 2px solid var(--accent-color);
-    opacity: 0.9;
-}
-
+/* HEADER */
 header {
     z-index: 999;
     top: 0;
@@ -93,16 +104,9 @@ header nav ul li {
     list-style: none;
 }
 
+/* MAIN */
 main {
     padding: 0 0.5rem 0.5rem 0.5rem;
-}
-
-mark {
-    color: #000;
-}
-
-noscript {
-    content: "Please enable JavaScript <wbr> to use this site.";
 }
 
 /* INPUT */
@@ -135,6 +139,26 @@ details p {
 
 details[open] p {
     height: max-content;
+}
+
+/* BUTTON */
+button, input[type="submit"], input[type="button"], input[type="reset"] {
+    all: unset;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--primary-color);
+    background-color: var(--secondary-background);
+}
+
+button:active, input[type="submit"]:active, input[type="button"]:active, input[type="reset"]:active {
+    scale: 0.95;
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+    border: 2px solid var(--accent-color);
+    opacity: 0.9;
 }
 
 /* SIDEBAR */
