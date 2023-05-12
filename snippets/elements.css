@@ -7,6 +7,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
@@ -23,7 +27,7 @@
 }
 
 /* DATA */
-img, picture, svg, map, video {
+img, picture, svg, canvas, map, video, audio {
     display: block;
     max-width: 100%;
 }
@@ -41,11 +45,18 @@ img, picture, svg, map, video {
     left: 0;
     width: 100%;
     height: 100%;
-  }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
 /* INPUT */
 input, button, textarea, select {
     font: inherit;
+    line-height: inherit;
+    color: inherit;
 }
 
 /* TEXT */
@@ -142,7 +153,7 @@ details[open] p {
 }
 
 /* BUTTON */
-button, input[type="submit"], input[type="button"], input[type="reset"] {
+button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"] {
     all: unset;
     cursor: pointer;
     transition: 0.3s;
@@ -152,11 +163,11 @@ button, input[type="submit"], input[type="button"], input[type="reset"] {
     background-color: var(--secondary-background);
 }
 
-button:active, input[type="submit"]:active, input[type="button"]:active, input[type="reset"]:active {
+button:active, [role="button"]:hover, input[type="submit"]:active, input[type="button"]:active, input[type="reset"]:active {
     scale: 0.95;
 }
 
-button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+button:hover, [role="button"]:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
     border: 2px solid var(--accent-color);
     opacity: 0.9;
 }
