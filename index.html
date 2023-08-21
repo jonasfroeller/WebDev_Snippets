@@ -17,11 +17,12 @@
 </head>
 
 <body>
-    <base href="./showcase.html" target="_blank">
-
     <header class="Header">
         <div class="Header-item">
-            <a href="./showcase.html" class="Header-link">Showcase</a>
+            <a href="#" class="Header-link p-2">Home</a>
+            <a href="https://github.com/jonasfroeller/JoneCSS" class="Header-link p-2" target="_blank">CSS-PreStyles</a>
+            <a href="https://github.com/jonasfroeller/VSC_CodeSnippets" class="Header-link p-2"
+                target="_blank">VSC-CodeSnippets</a>
         </div>
     </header>
     <main class="Layout">
@@ -40,8 +41,6 @@
                     <h1>Code Snippets</h1>
                     Some code snippets for webdevelopement.
                     <p><span>In Progress</span><span class="AnimatedEllipsis"></span></p>
-                    <a href="./showcase.html"><button class="btn-mktg btn-muted-mktg mr-3"
-                            type="button">CSS-prestyle</button></a>
                     <a href="https://github.com/jonasfroeller/WebDev_Snippets"
                         class="link-mktg arrow-target-mktg link-emphasis-mktg text-semibold f4-mktg color-fg-default">
                         Github
@@ -59,9 +58,7 @@
         </div>
         <aside class="Layout-sidebar">
             <nav class="menu" aria-label="Person settings">
-                <!-- aria-current="page" -->
-                <a class="menu-item" href="./showcase.html">showcase</a>
-                <div class="menu-item pointer snippet" data-snippet="ajax.js">ajax.js</div>
+                <div aria-current class="menu-item pointer snippet" data-snippet="ajax.js">ajax.js</div>
                 <div class="menu-item pointer snippet" data-snippet="fetch.js">fetch.js</div>
                 <div class="menu-item pointer snippet" data-snippet="elements.js">elements.js</div>
                 <div class="menu-item pointer snippet" data-snippet="script.js">script.js</div>
