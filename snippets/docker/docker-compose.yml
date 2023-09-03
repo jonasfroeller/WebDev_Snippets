@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: nginx-web
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./html:/usr/share/nginx/html
+    networks:
+      - frontend
+
+  app:
+    container_name: my-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    environment:
+      - ENV_VAR=example
+    volumes:
+      - ./app:/app
+    networks:
+      - frontend
+      - backend
+
+  db:
+    container_name: mysql-db
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=mydb
+    volumes:
+      - ./db_data:/var/lib/mysql
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:
